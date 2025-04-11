@@ -3,7 +3,7 @@ version: '3.8'
 services:
   producer:
     build:
-      context: .
+      context: ./digital-twin
     command: ["./gradlew", "runProducer", "--args=thermometer sensor/temperature"]
     depends_on:
       - broker
@@ -13,7 +13,7 @@ services:
 
   digital_twin:
     build:
-      context: .
+      context: ./digital-twin
     command: ["./gradlew", "runDT"]
     depends_on:
       - broker
